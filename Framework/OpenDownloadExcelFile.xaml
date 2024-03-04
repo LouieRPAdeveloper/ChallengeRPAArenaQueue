@@ -1,0 +1,307 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="OpenDownloadExcelFile" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_URL" Type="InArgument(x:String)" />
+    <x:Property Name="out_fileDownload" Type="OutArgument(x:String)" />
+    <x:Property Name="outBrowser" Type="OutArgument(ui:UiElement)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1236,1838</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>OpenDownloadExcelFile_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="OpenDownloadExcelFile" sap:VirtualizedContainerService.HintSize="1246,1773" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch (OpenDownloadExcel)" sap:VirtualizedContainerService.HintSize="1184,1662" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Variables>
+        <Variable x:TypeArguments="ui:BusinessRuleException" Name="BusinessException" />
+        <Variable x:TypeArguments="s:Exception" Name="SystemException" />
+        <Variable x:TypeArguments="ui:UiElement" Name="outputUIBrowserArenaRPA" />
+      </TryCatch.Variables>
+      <TryCatch.Try>
+        <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: ArenaRPA (descarga archivo)" sap:VirtualizedContainerService.HintSize="1146,1412" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Always" OutUiElement="[outputUIBrowserArenaRPA]" ScopeGuid="49616290-a299-4a7d-a9bd-485ad2d1375e" Version="V2" WindowResize="Maximize">
+          <uix:NApplicationCard.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do (Browser Of Arena RPA)" sap:VirtualizedContainerService.HintSize="1112,1195" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="ui:UiElement" Name="elementExist" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NCheckState DisplayName="Check App State 'Tabla de Productos'" sap:VirtualizedContainerService.HintSize="1050,1080" sap2010:WorkflowViewState.IdRef="NCheckState_1" OutUiElement="[elementExist]" ScopeIdentifier="49616290-a299-4a7d-a9bd-485ad2d1375e" Version="V3">
+                  <uix:NCheckState.IfExists>
+                    <Sequence DisplayName="Target appears (Descargar Excel)" sap:VirtualizedContainerService.HintSize="546,863" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="si:FileInfo" Name="fileDownload" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:GetLastDownloadedFile FileResource="{x:Null}" IgnoreFiles="{x:Null}" DisplayName="Wait for Download (Descargar Excel)" DownloadFolder="C:\Users\alber\Downloads" File="[fileDownload]" sap:VirtualizedContainerService.HintSize="484,321" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" Timeout="10">
+                        <ui:GetLastDownloadedFile.Body>
+                          <ActivityAction>
+                            <Sequence DisplayName="Sequence of Wait Dowload" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Tabla de Productos'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="49616290-a299-4a7d-a9bd-485ad2d1375e" Version="V3">
+                                <uix:NClick.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://arenarpa.com/tools/products" DesignTimeRectangle="330, 265, 116, 38" DesignTimeScaleFactor="1" FriendlyName="'Descargar Excel'" FullSelectorArgument="&lt;webctrl aaname=' Descargar Excel ' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' Descargar Excel ' tag='SPAN' type='' class='mx-3 bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400 hover:bg-green-600 cursor-pointer hover:text-white' check:innerText='Descargar Excel' /&gt;" Guid="f36d6598-2cf8-4e60-92da-3de36f5b0ac3" InformativeScreenshot="a4994d109e7e3cc3baf5567f98dfa1b4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ArenaRPA' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                        <uix:Target CvTextArea="57, 275, 261, 27" CvTextArgument="Tabla de Productos" CvType="Text" DesignTimeRectangle="59, 272, 259, 36" ElementType="Text" FriendlyName="'Tabla de Productos'" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='font-bold text-3xl inline-block' aaname='Tabla de Productos' check:innerText='Tabla de Productos' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:NClick.Target>
+                              </uix:NClick>
+                            </Sequence>
+                          </ActivityAction>
+                        </ui:GetLastDownloadedFile.Body>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:GetLastDownloadedFile>
+                      <Assign DisplayName="Assign output out_fileDownload" sap:VirtualizedContainerService.HintSize="484,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[out_fileDownload]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[fileDownload.ToString]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign DisplayName="Assign outBrowser " sap:VirtualizedContainerService.HintSize="484,82" sap2010:WorkflowViewState.IdRef="Assign_5">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="ui:UiElement">[outBrowser]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="ui:UiElement">[outputUIBrowserArenaRPA]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:LogMessage DisplayName="Log Message (Check Download File)" sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[out_fileDownload]">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:LogMessage>
+                    </Sequence>
+                  </uix:NCheckState.IfExists>
+                  <uix:NCheckState.IfNotExists>
+                    <Sequence DisplayName="Target does not appear (Descargar Excel)" sap:VirtualizedContainerService.HintSize="450,205" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Throw DisplayName="Throw (Boton Descargar Excel)" Exception="[new BusinessRuleException(&quot;No se detecto el boton de descargar Excel&quot;)]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                    </Sequence>
+                  </uix:NCheckState.IfNotExists>
+                  <uix:NCheckState.Target>
+                    <uix:TargetAnchorable BrowserURL="https://arenarpa.com/tools/products" DesignTimeRectangle="330, 265, 116, 38" DesignTimeScaleFactor="1" FriendlyName="'Descargar Excel'" FullSelectorArgument="&lt;webctrl aaname=' Descargar Excel ' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' Descargar Excel ' tag='SPAN' type='' class='mx-3 bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400 hover:bg-green-600 cursor-pointer hover:text-white' check:innerText='Descargar Excel' /&gt;" Guid="6f40b6f5-03b9-4357-ba69-430b3a5156eb" InformativeScreenshot="c4830e5de96f7674d3329a2a5b218586.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ArenaRPA' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target CvTextArea="57, 275, 261, 27" CvTextArgument="Tabla de Productos" CvType="Text" DesignTimeRectangle="59, 272, 259, 36" ElementType="Text" FriendlyName="'Tabla de Productos'" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='font-bold text-3xl inline-block' aaname='Tabla de Productos' check:innerText='Tabla de Productos' /&gt;" SearchSteps="FuzzySelector, CV" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NCheckState.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NCheckState>
+              </Sequence>
+            </ActivityAction>
+          </uix:NApplicationCard.Body>
+          <uix:NApplicationCard.TargetApp>
+            <uix:TargetApp Area="-8, -8, 1382, 736" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="faa0b205789d2eba2fb35b9c653735ef.jpg" Selector="&lt;html app='chrome.exe' title='ArenaRPA' /&gt;" Title="ArenaRPA" Url="https://arenarpa.com/tools/products" />
+          </uix:NApplicationCard.TargetApp>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </uix:NApplicationCard>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1150,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Sequence of system exception (Try catch from process OpendownloadExcel)" sap:VirtualizedContainerService.HintSize="496,311" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign DisplayName="Assign exception message (Sequence of system exception)" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="s:Exception">[exception]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="s:SystemException">[new SystemException("Existe error en el proceso OpenDownloadExcel File")]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="Assign SystemException in OpenDownloadExcel" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="s:Exception">[SystemException]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="s:Exception">[exception]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="1150,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+            </ActivityAction.Argument>
+            <Assign DisplayName="Assign Business Rule Exception (process OpenDownloadExcel)" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_6">
+              <Assign.To>
+                <OutArgument x:TypeArguments="ui:BusinessRuleException">[BusinessException]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="ui:BusinessRuleException">[exception]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
